@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اكتشف وطني</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+color:#173c2c;
+background:#f6f0e2;
+}
+
+/* =================================
+الخلفية الوطنية
+================================= */
+
+.page{
+min-height:100vh;
+position:relative;
+overflow:hidden;
+padding:25px 15px 55px;
+
+background:
+radial-gradient(circle at 12% 15%,
+rgba(255,255,255,.85),
+transparent 20%),
+
+radial-gradient(circle at 88% 80%,
+rgba(209,180,104,.17),
+transparent 22%),
+
+linear-gradient(
+145deg,
+#edf6f0 0%,
+#f9f4e8 48%,
+#e8f1e9 100%
+);
+}
+
+/* نقوش خلفية */
+
+.pattern{
+position:absolute;
+inset:0;
+opacity:.055;
+pointer-events:none;
+
+background-image:
+linear-gradient(
+30deg,
+#075d38 12%,
+transparent 12.5%,
+transparent 87%,
+#075d38 87.5%,
+#075d38
+),
+linear-gradient(
+150deg,
+#075d38 12%,
+transparent 12.5%,
+transparent 87%,
+#075d38 87.5%,
+#075d38
+);
+
+background-size:55px 95px;
+}
+
+/* خطوط وطنية جانبية */
+
+.side-line{
+position:absolute;
+width:8px;
+height:320px;
+border-radius:10px;
+opacity:.12;
+background:#087546;
+}
+
+.side1{
+right:0;
+top:160px;
+}
+
+.side2{
+left:0;
+bottom:120px;
+}
+
+/* دائرة زخرفية */
+
+.circle-decoration{
+position:absolute;
+width:240px;
+height:240px;
+border:35px solid rgba(7,104,61,.045);
+border-radius:50%;
+left:-100px;
+top:230px;
+}
+
+
+/* =================================
+الرأس
+================================= */
+
+.header{
+width:min(96%,760px);
+margin:auto;
+text-align:center;
+position:relative;
+z-index:5;
+}
+
+.national-number{
+display:inline-flex;
+align-items:center;
+gap:9px;
+
+padding:7px 19px;
+border-radius:30px;
+
+background:#07663d;
+color:white;
+
+font-size:12px;1
+font-weight:bold;
+letter-spacing:2px;
+
+box-shadow:
+0 6px 18px rgba(0,77,43,.16);
+}
+
+.national-number span{
+color:#e7cc82;
+}
+
+.header h1{
+margin:15px 0 5px;
+
+font-size:
+clamp(35px,7vw,58px);
+
+color:#075c38;
+letter-spacing:-1px;
+}
+
+.gold-line{
+width:75px;
+height:3px;
+
+margin:11px auto;
+
+border-radius:10px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#c9a54d,
+transparent
+);
+}
+
+.header-text{
+color:#62766b;
+font-size:15px;
+line-height:1.8;
+}
+
+
+/* =================================
+أسماء الأطفال
+================================= */
+
+.students{
+width:min(94%,650px);
+margin:17px auto 22px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+
+position:relative;
+z-index:5;
+}
+
+.student{
+flex:1;
+max-width:260px;
+
+padding:11px 10px;
+
+text-align:center;
+
+background:rgba(255,255,255,.82);
+
+border:1px solid rgba(8,111,65,.15);
+border-radius:18px;
+
+box-shadow:
+0 6px 20px rgba(0,60,35,.06);
+
+color:#075f39;
+
+font-size:14px;
+font-weight:bold;
+}
+
+.and{
+color:#b18b39;
+font-weight:bold;
+}
+
+
+/* =================================
+عداد الاكتشاف
+================================= */
+
+.progress-box{
+width:min(94%,650px);
+margin:0 auto 20px;
+
+padding:12px 16px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.72);
+
+border:1px solid rgba(8,112,65,.10);
+
+text-align:center;
+
+position:relative;
+z-index:5;
+}
+
+.progress-text{
+color:#66776e;
+font-size:12px;
+margin-bottom:8px;
+}
+
+.progress-track{
+height:7px;
+border-radius:20px;
+background:#e2e8e2;
+overflow:hidden;
+}
+
+.progress-bar{
+width:0%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+#087647,
+#c9a74f
+);
+
+border-radius:20px;
+transition:.5s;
+}
+
+.counter{
+margin-top:7px;
+font-size:12px;
+color:#087044;
+font-weight:bold;
+}
+
+
+/* =================================
+المربعات
+================================= */
+
+.cards{
+width:min(96%,760px);
+margin:auto;
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+
+position:relative;
+z-index:5;
+}
+
+.card{
+position:relative;
+min-height:175px;
+
+border:none;
+border-radius:26px;
+
+padding:23px 15px;
+
+cursor:pointer;
+overflow:hidden;
+
+text-align:center;
+
+color:#17412f;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.96),
+rgba(241,247,242,.96)
+);
+
+border:
+1px solid rgba(7,104,61,.13);
+
+box-shadow:
+0 10px 28px rgba(0,65,38,.09);
+
+transition:.25s;
+}
+
+.card:nth-child(2),
+.card:nth-child(5){
+background:
+linear-gradient(
+145deg,
+#fffdf8,
+#f5ead1
+);
+}
+
+.card:hover{
+transform:translateY(-4px);
+
+box-shadow:
+0 14px 30px rgba(0,70,40,.14);
+}
+
+.card:active{
+transform:scale(.97);
+}
+
+/* زخرفة البطاقة */
+
+.card::before{
+content:"";
+position:absolute;
+
+width:85px;
+height:85px;
+
+border-radius:50%;
+
+left:-30px;
+top:-35px;
+
+border:
+15px solid rgba(8,111,65,.045);
+}
+
+.card-number{
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:45px;
+height:45px;
+
+margin:0 auto 13px;
+
+border-radius:50%;
+
+background:#087346;
+color:white;
+
+font-size:19px;
+font-weight:bold;
+
+box-shadow:
+0 5px 13px rgba(0,80,45,.15);
+}
+
+.card:nth-child(2) .card-number,
+.card:nth-child(5) .card-number{
+background:#b38b38;
+}
+
+.card-title{
+color:#075e39;
+
+font-size:
+clamp(17px,4vw,21px);
+
+font-weight:bold;
+
+margin-bottom:7px;
+}
+
+.card-sub{
+color:#77867d;
+font-size:12px;
+line-height:1.6;
+}
+
+/* البطاقة المكتملة */
+
+.card.done{
+background:
+linear-gradient(
+145deg,
+#087548,
+#055932
+);
+
+border-color:#caae5c;
+}
+
+.card.done .card-number{
+background:#e1c46e;
+color:#17402e;
+}
+
+.card.done .card-title{
+color:white;
+}
+
+.card.done .card-sub{
+color:#dcebe2;
+}
+
+
+/* =================================
+النص السفلي
+================================= */
+
+.footer-note{
+width:min(94%,650px);
+
+margin:22px auto 0;
+
+padding:13px;
+
+text-align:center;
+
+color:#63766b;
+
+font-size:13px;
+
+border-top:
+1px solid rgba(8,105,61,.13);
+
+position:relative;
+z-index:5;
+}
+
+
+/* =================================
+النافذة
+================================= */
+
+.overlay{
+display:none;
+
+position:fixed;
+inset:0;
+
+z-index:100;
+
+align-items:center;
+justify-content:center;
+
+padding:20px;
+
+background:
+rgba(1,42,25,.74);
+
+backdrop-filter:blur(8px);
+}
+
+.overlay.show{
+display:flex;
+animation:fade .35s ease;
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+
+
+/* =================================
+بطاقة المعلومة
+================================= */
+
+.info-card{
+width:min(94%,560px);
+
+position:relative;
+overflow:hidden;
+
+padding:34px 24px 27px;
+
+border-radius:32px;
+
+background:#fffdf8;
+
+border:
+3px solid #d9bd6b;
+
+text-align:center;
+
+box-shadow:
+0 25px 70px rgba(0,0,0,.3);
+
+animation:cardOpen .45s ease;
+}
+
+.info-card::before{
+content:"";
+position:absolute;
+
+width:170px;
+height:170px;
+
+border-radius:50%;
+
+background:
+rgba(8,113,66,.055);
+
+right:-80px;
+top:-80px;
+}
+
+@keyframes cardOpen{
+from{
+opacity:0;
+transform:
+translateY(25px)
+scale(.9);
+}
+
+to{
+opacity:1;
+transform:
+translateY(0)
+scale(1);
+}
+}
+
+.info-number{
+width:55px;
+height:55px;
+
+margin:0 auto 12px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:#087346;
+color:white;
+
+font-size:22px;
+font-weight:bold;
+}
+
+.info-category{
+color:#a88234;
+
+font-size:14px;
+font-weight:bold;
+
+margin-bottom:13px;
+}
+
+.info-question{
+font-size:
+clamp(20px,5vw,27px);
+
+line-height:1.7;
+
+color:#173e2d;
+font-weight:bold;
+}
+
+.divider{
+width:65px;
+height:2px;
+
+margin:20px auto;
+
+background:#d5b75f;
+}
+
+
+/* الإجابة مباشرة */
+
+.answer-label{
+font-size:12px;
+color:#78877e;
+margin-bottom:7px;
+}
+
+.answer{
+padding:17px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+135deg,
+#e8f4eb,
+#f8f1df
+);
+
+color:#075f39;
+
+font-size:
+clamp(18px,4vw,23px);
+
+line-height:1.7;
+
+font-weight:bold;
+}
+
+
+/* زر العودة */
+
+.close-button{
+margin-top:22px;
+
+min-width:210px;
+
+padding:14px 24px;
+
+border:none;
+border-radius:40px;
+
+background:
+linear-gradient(
+135deg,
+#087747,
+#055b35
+);
+
+color:white;
+
+font-size:16px;
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:
+0 7px 18px rgba(0,75,43,.18);
+}
+
+
+/* =================================
+النهاية
+================================= */
+
+.final{
+display:none;
+
+position:fixed;
+inset:0;
+
+z-index:300;
+
+align-items:center;
+justify-content:center;
+
+padding:20px;
+
+text-align:center;
+color:white;
+
+background:
+radial-gradient(
+circle at 50% 20%,
+rgba(226,194,104,.22),
+transparent 28%
+),
+
+linear-gradient(
+145deg,
+#033c27,
+#087548,
+#033b26
+);
+}
+
+.final.show{
+display:flex;
+animation:fade .7s ease;
+}
+
+.final-card{
+width:min(94%,580px);
+
+padding:38px 22px;
+
+border-radius:34px;
+
+border:
+1px solid rgba(255,255,255,.3);
+
+background:
+rgba(255,255,255,.11);
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.25);
+}
+
+.final-96{
+font-size:16px;
+color:#e7cb7c;
+font-weight:bold;
+letter-spacing:4px;
+}
+
+.final h1{
+margin:14px 0 5px;
+
+color:#fff4d9;
+
+font-size:
+clamp(38px,8vw,60px);
+}
+
+.final-text{
+font-size:17px;
+line-height:1.9;
+}
+
+.final-line{
+width:75px;
+height:2px;
+
+margin:20px auto;
+
+background:#e0c16e;
+}
+
+.final-names{
+color:#f1d48b;
+
+font-size:
+clamp(21px,5vw,28px);
+
+font-weight:bold;
+line-height:1.9;
+}
+
+.school{
+margin-top:13px;
+line-height:2;
+font-size:16px;
+}
+
+.restart{
+margin-top:22px;
+
+padding:12px 24px;
+
+border:
+1px solid rgba(255,255,255,.5);
+
+border-radius:30px;
+
+color:white;
+
+background:
+rgba(255,255,255,.12);
+
+font-size:15px;
+cursor:pointer;
+}
+
+
+/* =================================
+الجوال
+================================= */
+
+@media(max-width:500px){
+
+.page{
+padding:
+17px 10px 40px;
+}
+
+.students{
+gap:7px;
+}
+
+.student{
+font-size:11px;
+padding:9px 5px;
+}
+
+.cards{
+gap:10px;
+}
+
+.card{
+min-height:155px;
+padding:18px 8px;
+border-radius:21px;
+}
+
+.card-number{
+width:39px;
+height:39px;
+font-size:16px;
+}
+
+.card-sub{
+font-size:10px;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+<div class="pattern"></div>
+<div class="side-line side1"></div>
+<div class="side-line side2"></div>
+<div class="circle-decoration"></div>
+
+
+<!-- الرأس -->
+
+<div class="header">
+
+<div class="national-number">
+KSA
+<span>96</span>
+</div>
+
+<h1>
+اكتشف وطني
+</h1>
+
+<div class="gold-line"></div>
+
+<div class="header-text">
+ست محطات صغيرة نكتشف فيها وطننا الكبير
+</div>
+
+</div>
+
+
+<!-- الأسماء -->
+
+<div class="students">
+
+<div class="student">
+أحمد موسى الناشري
+</div>
+
+<div class="and">
+×
+</div>
+
+<div class="student">
+شذى حسين الناشري
+</div>
+
+</div>
+
+
+<!-- التقدم -->
+
+<div class="progress-box">
+
+<div class="progress-text">
+رحلة الاكتشاف
+</div>
+
+<div class="progress-track">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+<div
+class="counter"
+id="counter">
+
+0 من 6
+
+</div>
+
+</div>
+
+
+<!-- المربعات -->
+
+<div class="cards">
+
+
+<button
+class="card"
+id="card0"
+onclick="openCard(0)">
+
+<div class="card-number">
+١
+</div>
+
+<div class="card-title">
+مؤسس المملكة
+</div>
+
+<div class="card-sub">
+تعرف على مؤسس وطننا
+</div>
+
+</button>
+
+
+
+<button
+class="card"
+id="card1"
+onclick="openCard(1)">
+
+<div class="card-number">
+٢
+</div>
+
+<div class="card-title">
+عاصمتنا
+</div>
+
+<div class="card-sub">
+اكتشف عاصمة المملكة
+</div>
+
+</button>
+
+
+
+<button
+class="card"
+id="card2"
+onclick="openCard(2)">
+
+<div class="card-number">
+٣
+</div>
+
+<div class="card-title">
+علمنا
+</div>
+
+<div class="card-sub">
+ماذا يميز علم وطننا؟
+</div>
+
+</button>
+
+
+
+<button
+class="card"
+id="card3"
+onclick="openCard(3)">
+
+<div class="card-number">
+٤
+</div>
+
+<div class="card-title">
+شعار المملكة
+</div>
+
+<div class="card-sub">
+تعرف على رموزه
+</div>
+
+</button>
+
+
+
+<button
+class="card"
+id="card4"
+onclick="openCard(4)">
+
+<div class="card-number">
+٥
+</div>
+
+<div class="card-title">
+يومنا الوطني
+</div>
+
+<div class="card-sub">
+لماذا نحتفل به؟
+</div>
+
+</button>
+
+
+
+<button
+class="card"
+id="card5"
+onclick="openCard(5)">
+
+<div class="card-number">
+٦
+</div>
+
+<div class="card-title">
+أحب وطني
+</div>
+
+<div class="card-sub">
+كلمة جميلة للوطن
+</div>
+
+</button>
+
+
+</div>
+
+
+<div class="footer-note">
+
+اضغط على كل بطاقة لتكتشف معلومة جديدة عن المملكة
+
+</div>
+
+
+</div>
+
+
+
+<!-- =================================
+نافذة المعلومة
+================================= -->
+
+<div
+class="overlay"
+id="overlay">
+
+
+<div class="info-card">
+
+
+<div
+class="info-number"
+id="infoNumber">
+</div>
+
+
+<div
+class="info-category"
+id="infoCategory">
+</div>
+
+
+<div
+class="info-question"
+id="infoQuestion">
+</div>
+
+
+<div class="divider"></div>
+
+
+<div class="answer-label">
+الإجابة
+</div>
+
+
+<div
+class="answer"
+id="answer">
+</div>
+
+
+<button
+class="close-button"
+onclick="finishCard()">
+
+عرفت المعلومة
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================
+النهاية
+================================= -->
+
+<div
+class="final"
+id="final">
+
+
+<div class="final-card">
+
+
+<div class="final-96">
+KSA • 96
+</div>
+
+
+<h1>
+دام عزك يا وطن
+</h1>
+
+
+<div class="final-text">
+
+انتهت رحلة اكتشاف وطننا
+<br>
+وبقي حبه في قلوبنا
+
+</div>
+
+
+<div class="final-line"></div>
+
+
+<div class="final-names">
+
+أحمد موسى الناشري
+
+<br>
+
+وشذى حسين الناشري
+
+</div>
+
+
+<div class="final-line"></div>
+
+
+<div class="school">
+
+صف المبدعون
+<br>
+الروضة الأولى بعاجة
+<br>
+اليوم الوطني السعودي 96
+
+</div>
+
+
+<button
+class="restart"
+onclick="restartGame()">
+
+اكتشف من جديد
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* =================================
+المعلومات
+================================= */
+
+const information = [
+
+
+{
+number:"١",
+
+category:"مؤسس المملكة",
+
+question:
+"من هو مؤسس المملكة العربية السعودية؟",
+
+answer:
+"الملك عبدالعزيز بن عبدالرحمن آل سعود رحمه الله"
+},
+
+
+{
+number:"٢",
+
+category:"عاصمتنا",
+
+question:
+"ما عاصمة المملكة العربية السعودية؟",
+
+answer:
+"مدينة الرياض"
+},
+
+
+{
+number:"٣",
+
+category:"علمنا",
+
+question:
+"لما علم المملكة العربية السعودية مميز؟",
+
+answer:
+"علم المملكة أخضر اللون ويحمل الشهادة والسيف والمميز فيه انه لا يُنكّس أبدًا لما يحمله من كلمة التوحيد"
+},
+
+
+{
+number:"٤",
+
+category:"شعار المملكة",
+
+question:
+"ماذا يتكون شعار المملكة العربية السعودية؟",
+
+answer:
+"من سيفين عربيين متقاطعين تعلوهما نخلة"
+},
+
+
+{
+number:"٥",
+
+category:"يومنا الوطني",
+
+question:
+"ماذا نحتفل في اليوم الوطني السعودي؟",
+
+answer:
+"نحتفل بذكرى تأسيس المملكة العربية السعودية"
+},
+
+
+{
+number:"٦",
+
+category:"أحب وطني",
+
+question:
+"ماذا تقول لوطنك في يومه الوطني؟",
+
+answer:
+"أحب وطني وأفخر به وأتمنى له الأمن والعز دائمًا"
+}
+
+
+];
+
+
+let currentCard = null;
+
+let completed = [];
+
+
+/* العناصر */
+
+const overlay =
+document.getElementById("overlay");
+
+const infoNumber =
+document.getElementById("infoNumber");
+
+const infoCategory =
+document.getElementById("infoCategory");
+
+const infoQuestion =
+document.getElementById("infoQuestion");
+
+const answer =
+document.getElementById("answer");
+
+const progressBar =
+document.getElementById("progressBar");
+
+const counter =
+document.getElementById("counter");
+
+
+
+/* =================================
+فتح البطاقة
+================================= */
+
+function openCard(number){
+
+
+currentCard = number;
+
+
+const item =
+information[number];
+
+
+infoNumber.innerHTML =
+item.number;
+
+
+infoCategory.innerHTML =
+item.category;
+
+
+infoQuestion.innerHTML =
+item.question;
+
+
+/*
+الإجابة تظهر مباشرة
+*/
+
+answer.innerHTML =
+item.answer;
+
+
+overlay.classList.add(
+"show"
+);
+
+
+}
+
+
+
+/* =================================
+عرفت المعلومة
+================================= */
+
+function finishCard(){
+
+
+if(
+!completed.includes(
+currentCard
+)
+){
+
+completed.push(
+currentCard
+);
+
+
+const card =
+document.getElementById(
+"card" + currentCard
+);
+
+
+card.classList.add(
+"done"
+);
+
+
+card.querySelector(
+".card-sub"
+).innerHTML =
+"تم الاكتشاف";
+
+
+card.querySelector(
+".card-number"
+).innerHTML =
+"✓";
+
+}
+
+
+updateProgress();
+
+
+overlay.classList.remove(
+"show"
+);
+
+
+/*
+عند إكمال الستة
+*/
+
+if(
+completed.length ===
+information.length
+){
+
+setTimeout(
+showFinal,
+550
+);
+
+}
+
+
+}
+
+
+
+/* =================================
+التقدم
+================================= */
+
+function updateProgress(){
+
+
+const percentage =
+(
+completed.length
+/
+information.length
+)
+*
+100;
+
+
+progressBar.style.width =
+percentage
++
+"%";
+
+
+counter.innerHTML =
+completed.length
++
+" من "
++
+information.length;
+
+
+}
+
+
+
+/* =================================
+النهاية
+================================= */
+
+function showFinal(){
+
+
+document
+.getElementById(
+"final"
+)
+.classList.add(
+"show"
+);
+
+
+}
+
+
+
+/* =================================
+إعادة النشاط
+================================= */
+
+function restartGame(){
+
+
+completed = [];
+
+currentCard = null;
+
+
+const subtitles = [
+
+"تعرف على مؤسس وطننا",
+
+"اكتشف عاصمة المملكة",
+
+"ماذا يميز علم وطننا؟",
+
+"تعرف على رموزه",
+
+"لماذا نحتفل به؟",
+
+"كلمة جميلة للوطن"
+
+];
+
+
+const numbers = [
+"١","٢","٣","٤","٥","٦"
+];
+
+
+for(
+let i=0;
+i<6;
+i++
+){
+
+const card =
+document.getElementById(
+"card" + i
+);
+
+
+card.classList.remove(
+"done"
+);
+
+
+card.querySelector(
+".card-number"
+).innerHTML =
+numbers[i];
+
+
+card.querySelector(
+".card-sub"
+).innerHTML =
+subtitles[i];
+
+}
+
+
+updateProgress();
+
+
+document
+.getElementById(
+"final"
+)
+.classList.remove(
+"show"
+);
+
+
+}
+
+</script>
+
+</body>
+</html>
